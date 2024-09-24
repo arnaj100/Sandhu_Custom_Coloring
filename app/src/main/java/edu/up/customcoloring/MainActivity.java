@@ -12,6 +12,15 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+/**
+ * <!-- class MainActivity -->
+ *
+ * This is the Main Class
+ *
+ * @author Arnaj Sandhu
+ * @version Fall 2024
+ *
+ */
 public class MainActivity extends AppCompatActivity {
 
 

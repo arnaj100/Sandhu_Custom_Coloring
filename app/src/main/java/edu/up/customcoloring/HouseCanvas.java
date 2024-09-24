@@ -5,6 +5,15 @@ import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.view.SurfaceView;
 
+/**
+ * <!-- class HouseCanvas -->
+ *
+ * This class defines the SurfaceView to draw on
+ *
+ * @author Arnaj Sandhu
+ * @version Fall 2024
+ *
+ */
 public class HouseCanvas extends SurfaceView {
     CustomRect door;
     CustomRect leftWindow;
