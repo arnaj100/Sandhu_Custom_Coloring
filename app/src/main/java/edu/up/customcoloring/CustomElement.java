@@ -51,7 +51,7 @@ public abstract class CustomElement {
 	protected String myName = "$NO NAME$";
 
 	/** the ctor requires that you give the object a name and a color */
-	public CustomElement(String name, int color) {
+	public CustomElement(String name, CustomColor color) {
 		// init instance variables
 		setColor(color);
 		this.myName = name;
@@ -75,25 +75,20 @@ public abstract class CustomElement {
 	}
 
 	/** change the color */
-	public void setColor(int color) {
-
-		// ignore request if it's not a new color (this keeps the undo queue
-		// clean)
-		if (color == myPaint.getColor())
-			return;
-
-		// make the change
-		this.myPaint.setColor(color);
+	public void setColor(CustomColor color) {
+		this.myPaint.setColor(color.getColor());
 	}
 
-	/** get the color */
-	public int getColor() {
-		return this.myPaint.getColor();
+	/**
+	 * get the color
+	 */
+	public Paint getColor() {
+		return this.myPaint;
 	}
 
 	/** switch to a random color */
 	public void setRandomColor() {
-		int randColor = Color.rgb(myRand.nextInt(256), myRand.nextInt(256),
+		CustomColor randColor = new CustomColor (myRand.nextInt(256), myRand.nextInt(256),
 				myRand.nextInt(256));
 		setColor(randColor);
 	}

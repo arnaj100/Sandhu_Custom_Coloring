@@ -22,7 +22,7 @@ public class CustomTriangle extends CustomElement {
     private int cx;
     private int cy;
 
-    public CustomTriangle(String name, int color, int ax, int ay, int bx, int by, int cx, int cy) {
+    public CustomTriangle(String name, CustomColor color, int ax, int ay, int bx, int by, int cx, int cy) {
         super(name, color);
         this.ax = ax;
         this.ay = ay;
@@ -53,14 +53,44 @@ public class CustomTriangle extends CustomElement {
         path.reset();
     }
 
+    /**
+     External Citation
+     Date: 30 September 2024
+     Problem: Needed a way to find if a triangle contains a point
+     Resource:
+     https://www.geeksforgeeks.org/check-whether-a-given-point-lies-inside-a-triangle-or-not/
+     Solution: I used the example code from this page and adapted it slightly
+     */
     @Override
     public boolean containsPoint(int x, int y) {
-        return false;
+        CustomColor c = new CustomColor(1,1,1);
+        /* Calculate area of triangle ABC */
+        double A = new CustomTriangle("A", c, ax, ay, bx, by, cx, cy).getSize();
+
+        /* Calculate area of triangle PBC */
+        double A1 = new CustomTriangle("B", c, x, y, bx, by, cx, cy).getSize();
+
+        /* Calculate area of triangle PAC */
+        double A2 = new CustomTriangle("B", c, ax, ay, x, y, cx, cy).getSize();
+
+        /* Calculate area of triangle PAB */
+        double A3 = new CustomTriangle("B", c, ax, ay, bx, by, x, y).getSize();
+
+        /* Check if sum of A1, A2 and A3 is same as A */
+        return (A == A1 + A2 + A3);
     }
 
+    /**
+     External Citation
+     Date: 30 September 2024
+     Problem: Needed a way to get the area of a triangle
+     Resource:
+     https://www.geeksforgeeks.org/check-whether-a-given-point-lies-inside-a-triangle-or-not/
+     Solution: I used the example code from this page and adapted it slightly
+     */
     @Override
     public int getSize() {
-        return 0;
+        return (int) Math.abs((ax*(by-cy) + bx*(cy-ay)+ cx*(ay-by))/2.0);
     }
 
     @Override

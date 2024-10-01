@@ -5,6 +5,8 @@ import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.widget.SeekBar;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -35,6 +37,18 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        SeekBar red = findViewById(R.id.redSeekBar);
+        SeekBar green = findViewById(R.id.greenSeekBar);
+        SeekBar blue = findViewById(R.id.blueSeekBar);
+
+        TextView curElement = findViewById(R.id.curElement);
+
+        HouseCanvas houseCanvas = findViewById(R.id.drawing);
+        HouseController hCont = new HouseController(houseCanvas, red, green, blue, curElement);
+        houseCanvas.setOnTouchListener(hCont);
+
+
+
     }
 
     /**

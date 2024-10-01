@@ -29,7 +29,7 @@ public class CustomCircle extends CustomElement {
 	private int radius;
 	
 	/** the circle's dimensions must be defined at construction */
-	public CustomCircle(String name, int color, int x, int y, int radius)
+	public CustomCircle(String name, CustomColor color, int x, int y, int radius)
 	{
 		super(name, color);
 		

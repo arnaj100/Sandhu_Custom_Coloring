@@ -29,7 +29,7 @@ public class CustomRect extends CustomElement {
 	protected Rect myRect;
 	
 	/** the rectangles dimensions must be defined at construction */
-	public CustomRect(String name, int color, 
+	public CustomRect(String name, CustomColor color,
 			int left, int top, int right, int bottom)
 	{
 		super(name, color);
@@ -55,7 +55,7 @@ public class CustomRect extends CustomElement {
 		Rect r = new Rect(left, top, right, bottom);
 		
 		return r.contains(x, y);
-	}//contaisPoint
+	}//containsPoint
 
 
 	@Override
