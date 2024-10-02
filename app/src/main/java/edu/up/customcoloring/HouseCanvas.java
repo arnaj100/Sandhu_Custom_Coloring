@@ -49,9 +49,8 @@ public class HouseCanvas extends SurfaceView {
         chimney = new CustomRect("chimney", chimneyColor, 1150, 75, 1225, 400);
     }
 
-    public boolean setCurElement() {
-        int x = (int) hm.x;
-        int y = (int) hm.y;
+    // sets the current element by checking each one based on the touch coordinates
+    public boolean setCurElement(int x, int y) {
         if (doorknob.containsPoint(x,y)){
             hm.cur = doorknob;
             return true;
@@ -84,7 +83,6 @@ public class HouseCanvas extends SurfaceView {
     }
     @Override
     protected void onDraw(Canvas canvas){
-        setCurElement();
         chimney.drawMe(canvas);
         roof.drawMe(canvas);
         house.drawMe(canvas);

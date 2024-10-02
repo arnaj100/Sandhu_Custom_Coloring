@@ -5,6 +5,7 @@ import java.util.Random;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.util.Log;
 
 /**
  External Citation
@@ -12,7 +13,7 @@ import android.graphics.Paint;
  Problem: Needed a way to make shapes
  Resource:
  example code for this assignment
- Solution: I used the example code from the moodle page
+ Solution: I used the example code from the moodle page and edited the color methods to use CustomColor
  */
 /**
  * <!-- class CustomElement -->
@@ -76,14 +77,16 @@ public abstract class CustomElement {
 
 	/** change the color */
 	public void setColor(CustomColor color) {
+		Log.i("color", "setColor: " + color.getColor());
 		this.myPaint.setColor(color.getColor());
 	}
 
 	/**
 	 * get the color
 	 */
-	public Paint getColor() {
-		return this.myPaint;
+	public CustomColor getColor() {
+		int colorInt = this.myPaint.getColor();
+        return new CustomColor(Color.red(colorInt), Color.green(colorInt), Color.blue(colorInt));
 	}
 
 	/** switch to a random color */
@@ -107,7 +110,7 @@ public abstract class CustomElement {
 	 * within the bounds of its shape. This is used for tap purposes so a tap
 	 * that is close to being inside should still count. Use the TAP_MARGIN
 	 * constant as a guide for fudge factor. When implementing this method, you
-	 * may find the {@link android.graphics.Rect.contains} method handy.
+	 * may find the {android.graphics.Rect.contains} method handy.
 	 */
 	public abstract boolean containsPoint(int x, int y);
 

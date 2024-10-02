@@ -1,8 +1,15 @@
 package edu.up.customcoloring;
 
-public class HouseModel {
+/**
+ * <!-- class HouseModel -->
+ *
+ * This class defines the current element that is selected
+ *
+ * @author Arnaj Sandhu
+ * @version Fall 2024
+ *
+ */
 
-    public float x;
-    public float y;
+public class HouseModel {
     public CustomElement cur;
 }

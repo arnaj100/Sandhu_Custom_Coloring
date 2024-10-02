@@ -37,12 +37,14 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        // define the Seekbars and TextView
         SeekBar red = findViewById(R.id.redSeekBar);
         SeekBar green = findViewById(R.id.greenSeekBar);
         SeekBar blue = findViewById(R.id.blueSeekBar);
-
         TextView curElement = findViewById(R.id.curElement);
 
+        // create a HouseCanvas and pass in the SeekBars and TextView
         HouseCanvas houseCanvas = findViewById(R.id.drawing);
         HouseController hCont = new HouseController(houseCanvas, red, green, blue, curElement);
         houseCanvas.setOnTouchListener(hCont);

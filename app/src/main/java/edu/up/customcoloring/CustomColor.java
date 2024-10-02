@@ -1,5 +1,17 @@
 package edu.up.customcoloring;
 
+import android.graphics.Color;
+
+/**
+ * <!-- class CustomColor -->
+ *
+ * This class defines a custom color that makes it easier to interact with the colors of CustomElement
+ *
+ * @author Arnaj Sandhu
+ * @version Fall 2024
+ *
+ */
+
 public class CustomColor {
     public int red;
     public int green;
@@ -11,27 +23,7 @@ public class CustomColor {
         this.blue = blue;
     }
 
-    // https://stackoverflow.com/a/60684467
     public int getColor() {
-        int hexVal = 0;
-        hexVal += red;
-        hexVal = hexVal << 8;
-        hexVal += green;
-        hexVal = hexVal << 8;
-        hexVal += blue;
-
-        return hexVal;
-    }
-
-    public void setRed(int red) {
-        this.red = red;
-    }
-
-    public void setGreen(int green) {
-        this.green = green;
-    }
-
-    public void setBlue(int blue) {
-        this.blue = blue;
+        return Color.rgb(red, green, blue);
     }
 }
